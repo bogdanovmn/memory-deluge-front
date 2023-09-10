@@ -6,6 +6,7 @@
     import { eventBus, Event } from './common/event-bus';
     import router from './router';
 
+
     const ssoService = inject<SsoService>("ssoService")!
     const userName = ref(tokenStorage.claims?.userName)
 
@@ -22,10 +23,25 @@
 
 <template>
     <div id="#app">
-        <router-link to="/series">Series</router-link> ::
-        <router-link to="/about">About</router-link>
-        <auth-state :user-name="userName"/>
-        <router-view/>
+        <v-layout>
+            <v-navigation-drawer expand-on-hover rail permanent elevation="2">
+                <v-list density="compact" nav>
+                    <v-list-item prepend-icon="mdi-folder" title="Series" href="/series"/>
+                    <v-list-item prepend-icon="mdi-information-variant" title="About" href='/about' />
+                </v-list>
+                
+                <v-divider/>
+
+                <v-list>
+                    <auth-state :user-name="userName"/>
+                </v-list>
+
+            </v-navigation-drawer>
+
+            <v-main>
+                <router-view/>
+            </v-main>
+        </v-layout>
     </div>
 </template>
 

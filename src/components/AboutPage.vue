@@ -5,7 +5,9 @@
 
 <template>
     <h1>Welcome to Memory Deluge!</h1>
-    <p>Just <a href='#'>sign in</a> and enjoy</p>
+    <p>Do you have a favorite series? 
+    <br/>Do you want to jump into a flood of memories about it?
+    </p>
 </template>
 
 <style scoped>

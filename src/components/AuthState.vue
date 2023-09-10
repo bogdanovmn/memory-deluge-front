@@ -22,13 +22,8 @@
 </script>
 
 <template>
-    <div v-if="userName">
-        {{ userName }}
-        <button @click="logout()">log out</button>
-    </div>
-    <div v-else>
-        <button @click="loginRequest()">log in</button>
-    </div>
+    <v-list-item v-if="userName" prepend-icon="mdi-logout" :subtitle="userName" title="log out" @click="logout()"/>
+    <v-list-item v-else prepend-icon="mdi-login" title="log in" @click="loginRequest()"/>
 </template>
 
 <style scoped>
